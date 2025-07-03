@@ -6,7 +6,7 @@ export const useGoogleAnalytics = () => {
     // Initialize Google Analytics
     const script = document.createElement("script");
     script.async = true;
-    script.src = "https://www.googletagmanager.com/gtag/js?id=G-M26FS7EQ31";
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-6NKH4E4GWH";
     document.head.appendChild(script);
 
     // Initialize gtag
@@ -16,7 +16,7 @@ export const useGoogleAnalytics = () => {
     }
 
     gtag("js", new Date());
-    gtag("config", "G-M26FS7EQ31");
+    gtag("config", "G-6NKH4E4GWH");
 
     // Fire page_view on first paint
     gtag("event", "page_view", {
