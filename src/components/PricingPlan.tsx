@@ -67,10 +67,12 @@ const PricingPlan = ({ onCTAClick }: PricingPlanProps) => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4 px-2">
-            부모님께 딱 맞는 케어 플랜
+            우리 부모님에게 딱 맞는 합리적인 가격
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            30초 만에 시작할 수 있는 간편한 건강 관리 서비스
+            사용해보고 결정하세요
+            <br />
+            무료 플랜 사용 후 결제 가능
           </p>
         </div>
 
@@ -161,9 +163,10 @@ const PricingPlan = ({ onCTAClick }: PricingPlanProps) => {
             <Button
               size="lg"
               className="bg-gray-900 text-white hover:bg-zinc-900 font-semibold px-4 md:px-6 py-3 text-base md:text-lg flex items-center gap-2 rounded-full"
-              onClick={() =>
-                window.open("https://open.kakao.com/o/s69ThYEh", "_blank")
-              }
+              onClick={() => {
+                onCTAClick("kakao_consult");
+                window.open("https://open.kakao.com/o/s69ThYEh", "_blank");
+              }}
             >
               <svg
                 className="w-4 h-4 md:w-5 md:h-5"

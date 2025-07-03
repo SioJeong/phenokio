@@ -61,7 +61,7 @@ export const useGoogleAnalytics = () => {
     let scroll25 = false,
       scroll50 = false,
       scroll75 = false,
-      scroll100 = false;
+      scroll90 = false;
 
     const handleScroll = () => {
       const scrollPercent =
@@ -80,9 +80,9 @@ export const useGoogleAnalytics = () => {
         scroll75 = true;
         gtag("event", "scroll_75", { event_category: "engagement" });
       }
-      if (scrollPercent >= 100 && !scroll100) {
-        scroll100 = true;
-        gtag("event", "scroll_100", { event_category: "engagement" });
+      if (scrollPercent >= 90 && !scroll90) {
+        scroll90 = true;
+        gtag("event", "scroll_90", { event_category: "engagement" });
       }
     };
 
