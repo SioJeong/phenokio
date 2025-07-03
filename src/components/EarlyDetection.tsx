@@ -349,11 +349,14 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
             </div>
           </div>
 
-          <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 md:mb-4 text-center px-2 leading-tight">
+          <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 text-center px-2 leading-tight">
             조기 발견 하나로
             <br />
             막대한 시간과 비용을 줄일 수 있습니다.
           </h4>
+          <div className="text-sm md:text-base text-gray-600 px-2 mb-6 md:mb-4">
+            (치매 초기 약물 치료 시, 5년 후 기준)
+          </div>
           <div className="mb-12 md:mb-16">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8 mb-6 md:mb-8">
               <div className="flex flex-col items-center p-4 md:p-8 bg-primary/5 rounded-2xl border border-primary/10">
@@ -394,9 +397,6 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
             </div>
 
             <div className="text-center sm:text-right mt-4 md:mt-6">
-              <div className="text-xs text-gray-400">
-                (치매 초기 약물 치료 시, 5년 후 기준)
-              </div>
               <div className="text-xs text-gray-400">출처: 중앙치매센터</div>
             </div>
           </div>

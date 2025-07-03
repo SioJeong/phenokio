@@ -10,7 +10,7 @@ type Testimonial = {
 const Testimonials = () => {
   const testimonials: Testimonial[] = [
     {
-      name: "김민정",
+      name: "김O정",
       position: "직장인",
       comment:
         "출장이 많아 걱정이었는데, 피노키오 덕분에 엄마 상태를 매일 확인할 수 있어서 안심이 됩니다.",
@@ -18,7 +18,7 @@ const Testimonials = () => {
         "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=80&h=80&fit=crop&crop=face",
     },
     {
-      name: "박의진",
+      name: "박O진",
       position: "직장인",
       comment:
         "아버지가 혼자 계시는데 AI 추천 활동으로 더 활기찬 생활을 하시게 되었어요. 건강 데이터도 정확하게 기록되어 돌봄에 도움이 됩니다.",
@@ -26,7 +26,7 @@ const Testimonials = () => {
         "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=80&h=80&fit=crop&crop=face",
     },
     {
-      name: "최영희",
+      name: "최O희",
       position: "주부",
       comment:
         "시어머니에게 매번 전화해서 돌보는게 부담스러웠는데, 더 이상 부담스럽지않아요.",
@@ -34,7 +34,7 @@ const Testimonials = () => {
         "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=80&h=80&fit=crop",
     },
     {
-      name: "이수연",
+      name: "이O연",
       position: "주부",
       comment:
         "부모님에게 무언가를 시키는 것이 부담스러웠는데, 피노키오는 설치만 해드려도 상태를 확인할 수 있어 참 든든합니다.",
@@ -42,7 +42,7 @@ const Testimonials = () => {
         "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=80&h=80&fit=crop&crop=face",
     },
     {
-      name: "강동수",
+      name: "강O수",
       position: "자영업자",
       comment:
         "아버지가 매일 집에만 계셨는데, 피노키오로 산책을 권유했더니 새로운 취미가 생기시고 사람들과 대화도 많아졌어요.",
@@ -50,7 +50,7 @@ const Testimonials = () => {
         "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=80&h=80&fit=crop",
     },
     {
-      name: "서태준",
+      name: "서O준",
       position: "보안 전문가",
       comment:
         "멀리 계신 부모님을 걱정하는 보호자로서, 그리고 보안 전문가로서도 피노키오의 개인정보 보호 기능은 매우 신뢰할 수 있습니다.",
@@ -58,7 +58,7 @@ const Testimonials = () => {
         "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=80&h=80&fit=crop&crop=face",
     },
     {
-      name: "지유민",
+      name: "지O민",
       position: "노인일자리담당자",
       comment:
         "현장에서 어르신들을 만나며, 갑작스럽게 인지 장애 진단을 받는 경우를 종종 봅니다. 피노키오가 그런 상황을 미리 알아채는 데 도움 되길 기대합니다.",
@@ -66,7 +66,7 @@ const Testimonials = () => {
         "https://images.unsplash.com/photo-1523177567729-8771749914c9?w=80&h=80&fit=crop&crop=face",
     },
     {
-      name: "손은지",
+      name: "손O지",
       position: "사회복지사",
       comment:
         "현장에서 어르신들과 함께하며 조기 발견과 예방의 중요성을 절감해왔습니다. 피노키오는 그 가치를 잘 담아낸 꼭 필요한 서비스입니다.",
