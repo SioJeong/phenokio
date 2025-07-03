@@ -13,7 +13,7 @@ const StickyBottomBar = ({ onCTAClick }: StickyBottomBarProps) => {
       const scrollPercent =
         (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
         100;
-      setIsVisible(scrollPercent > 60);
+      setIsVisible(scrollPercent > 0);
     };
 
     window.addEventListener("scroll", handleScroll);

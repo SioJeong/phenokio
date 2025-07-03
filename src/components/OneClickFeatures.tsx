@@ -106,17 +106,18 @@ const OneClickFeatures = () => {
   return (
     <section className="px-4 md:px-12 py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4 px-2">
-            딱 한 번의 설치로 OK
+        <div className="text-center mb-20 md:mb-24">
+          <img
+            src="/phenotyping.png"
+            alt="phenotyping"
+            className="mb-4 h-60 sm:h-80 md:h-[28rem] mx-auto object-contain"
+          />
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4 px-2 leading-relaxed md:leading-relaxed">
+            <span>별도의 조작 없이, 단 한 번의 설치로 OK</span>
+            <span className="block mb-2">부모님의 일상 속 스마트폰을 분석</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 mb-2 md:mb-4">
-            특별한 무언가를 하지 않아도
-            <br />
-            부모님의 일상과 함께 해드립니다.
-          </p>
+          <hr />
         </div>
-
         <div className="flex flex-col gap-12 md:gap-20 max-w-6xl mx-auto">
           {features.map((feature, idx) => (
             <div
@@ -139,7 +140,7 @@ const OneClickFeatures = () => {
                       : idx === 1
                       ? { backgroundColor: "#FBFEFF" }
                       : idx === 4
-                      ? { backgroundColor: "#FEFBF5" }
+                      ? { backgroundColor: "#E1E9E6" }
                       : {}
                   }
                 >
