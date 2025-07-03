@@ -169,7 +169,9 @@ const Monitoring = ({ onCTAClick }: MonitoringProps) => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">
-                      기록은 안전하게 지켜져요
+                      기록은
+                      <br />
+                      안전하게 지켜져요
                     </h3>
                     <p className="text-gray-600 text-sm md:text-lg leading-relaxed">
                       모든 데이터는 강력한 암호화 기술로 안전하게 보호됩니다.
@@ -184,12 +186,14 @@ const Monitoring = ({ onCTAClick }: MonitoringProps) => {
 
           {/* 보안 강조 메시지 */}
           <div className="text-center mt-12">
-            <div className="inline-flex items-center space-x-2 bg-gray-100 text-gray-800 px-4 md:px-20 py-3 rounded-lg max-w-4xl mx-auto">
-              <Lock className="w-5 h-5 flex-shrink-0" />
+            <div className="inline-flex items-center space-x-4 md:space-x-6 bg-gray-100 text-gray-800 px-4 md:px-20 py-3 rounded-lg max-w-4xl mx-auto">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center flex-shrink-0">
+                <Lock className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+              </div>
               <span className="font-semibold text-sm md:text-base">
-                부모님의 정보가 어디로도 흘러가지 않도록,
+                피노키오는 부모님의 정보를 안전하게,
                 <br />
-                피노키오는 AI 학습에 사용되지 않도록 지킵니다.
+                AI가 학습하지 않도록 지킵니다.
               </span>
             </div>
           </div>

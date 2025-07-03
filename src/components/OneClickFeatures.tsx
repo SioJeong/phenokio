@@ -3,15 +3,21 @@ import { Card, CardContent } from "@/components/ui/card";
 const features = [
   {
     image: "/day-report.png",
-    title: "매일매일 건강 상태 모니터링",
+    title: "매일 기록되는 건강 상태",
     description:
-      "생활 패턴, 정서 상태, 사회적 교류 등 노년기 삶의 질에 중요한 핵심 건강 지표들을 자동으로 감지하고 기록합니다.",
+      "수면, 활동량, 정서, 사회적 교류 등\n노년기 삶의 질에 중요한 지표들을\n자동으로 감지하고 기록합니다.",
+  },
+  {
+    image: "/tech.png",
+    title: "단순 관찰을 넘어, 깊이 있는 분석",
+    description:
+      "전화, 문자, 외출 여부 등\n일상의 데이터를 다각도로 분석해,\n표면 너머의 건강 변화를 찾아냅니다.",
   },
   {
     image: "/detail-report.png",
-    title: "상세하고 체계적인 보호자 안심 리포트",
+    title: "보호자를 위한 맞춤형 건강 리포트",
     description:
-      "주간/월간 활동 패턴과 건강 상태를 종합 분석하여 가족들이 안심할 수 있는 체계적인 리포트를 제공합니다.",
+      "주간·월간 활동과 건강 상태를 종합 분석하여,\n가족들이 쉽게 이해하고 안심할 수 있도록 \n피노키오가 정리해드립니다.",
   },
   {
     images: [
@@ -21,9 +27,9 @@ const features = [
       "/coach4.png",
       "/coach5.png",
     ],
-    title: "어르신의 마음을 읽는 스마트 돌봄 코치",
+    title: "어르신의 일상을 이해하는 돌봄 코치",
     description:
-      "요즘 어르신이 어떻게 지내고 있는지 다 알려드려요. 어떤말을 꺼내야 할지 모르겠다면 피노키오가 도와드릴게요.",
+      "요즘 어르신이 어떻게 지내고 계신지,\n어떤 대화를 나누면 좋을지까지\n피노키오가 함께 고민합니다.",
   },
 ];
 
@@ -69,7 +75,7 @@ const CoachImageCarousel = () => {
               <img
                 src={image}
                 alt={`Coach ${index + 1}`}
-                className="w-auto h-auto max-w-none object-contain max-h-60"
+                className="w-auto h-auto max-w-none object-contain max-h-40"
               />
             </div>
           ))}
@@ -80,7 +86,7 @@ const CoachImageCarousel = () => {
               <img
                 src={image}
                 alt={`Coach ${index + 1}`}
-                className="w-auto h-auto max-w-none object-contain max-h-60"
+                className="w-auto h-auto max-w-none object-contain max-h-40"
               />
             </div>
           ))}
@@ -92,7 +98,7 @@ const CoachImageCarousel = () => {
 
 const OneClickFeatures = () => {
   return (
-    <section className="py-16 md:py-20 bg-white">
+    <section className="px-4 md:px-12 py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4 px-2">
@@ -100,8 +106,7 @@ const OneClickFeatures = () => {
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 mb-2 md:mb-4">
             특별한 무언가를 하지 않아도
-          </p>
-          <p className="text-base sm:text-lg text-gray-500">
+            <br />
             부모님의 일상과 함께 해드립니다.
           </p>
         </div>
@@ -122,9 +127,15 @@ const OneClickFeatures = () => {
                   className={`rounded-2xl shadow-lg flex items-center justify-center w-full max-w-sm sm:max-w-md h-64 sm:h-80 md:h-96 overflow-hidden mx-auto ${
                     idx % 2 === 1 ? "md:ml-auto md:mr-0" : "md:mr-auto md:ml-0"
                   } ${idx === 0 ? "" : "bg-gray-50"}`}
-                  style={idx === 0 ? { backgroundColor: "#EBF0EB" } : {}}
+                  style={
+                    idx === 0
+                      ? { backgroundColor: "#EBF0EB" }
+                      : idx === 1
+                      ? { backgroundColor: "#FBFEFF" }
+                      : {}
+                  }
                 >
-                  {idx === 2 ? (
+                  {idx === 3 ? (
                     <CoachImageCarousel />
                   ) : (
                     <img
@@ -145,7 +156,7 @@ const OneClickFeatures = () => {
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4 leading-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 leading-relaxed break-words">
+                  <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 leading-relaxed break-words whitespace-pre-line">
                     {feature.description}
                   </p>
                 </div>
