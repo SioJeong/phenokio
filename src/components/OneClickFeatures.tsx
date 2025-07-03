@@ -31,6 +31,12 @@ const features = [
     description:
       "요즘 어르신이 어떻게 지내고 계신지,\n어떤 대화를 나누면 좋을지까지\n피노키오가 함께 고민합니다.",
   },
+  {
+    image: "/battery.png",
+    title: "배터리 걱정 없이",
+    description:
+      "하루 종일 켜져 있어도 괜찮아요.\n어르신의 스마트폰을 고려했습니다.\n배터리 사용을 최소화해요.",
+  },
 ];
 
 const CoachImageCarousel = () => {
@@ -132,6 +138,8 @@ const OneClickFeatures = () => {
                       ? { backgroundColor: "#EBF0EB" }
                       : idx === 1
                       ? { backgroundColor: "#FBFEFF" }
+                      : idx === 4
+                      ? { backgroundColor: "#FEFBF5" }
                       : {}
                   }
                 >
