@@ -355,7 +355,7 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
             막대한 시간과 비용을 줄일 수 있습니다.
           </h4>
           <div className="text-sm md:text-base text-gray-600 px-2 mb-6 md:mb-4">
-            (치매 초기 약물 치료 시, 5년 후 기준)
+            (치매 초기 약물 치료 시)
           </div>
           <div className="mb-12 md:mb-16">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8 mb-6 md:mb-8">
@@ -376,7 +376,7 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                   <PiggyBank className="w-8 h-8 md:w-10 md:h-10 text-black" />
                 </div>
                 <div className="text-2xl md:text-4xl font-bold text-black mb-2 md:mb-3">
-                  6,700만원
+                  6,300만원
                 </div>
                 <div className="text-sm md:text-lg text-gray-700 font-medium text-center">
                   경제적 비용 절감
