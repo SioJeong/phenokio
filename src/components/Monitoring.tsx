@@ -99,8 +99,7 @@ const Monitoring = ({ onCTAClick }: MonitoringProps) => {
                     </h3>
                     <p className="text-gray-600 text-sm md:text-lg leading-relaxed">
                       통화 내용이나 문자처럼 사적인 정보는 절대 수집하지
-                      않습니다.
-                      <br className="hidden md:block" />
+                      않습니다. <br className="hidden md:block" />
                       안심하고 사용하셔도 됩니다.
                     </p>
                   </div>
@@ -137,8 +136,7 @@ const Monitoring = ({ onCTAClick }: MonitoringProps) => {
                     </h3>
                     <p className="text-gray-600 text-sm md:text-lg leading-relaxed">
                       모든 정보는 철저한 보안 시스템으로 보호되어 외부에
-                      유출되지 않습니다.
-                      <br className="hidden md:block" />
+                      유출되지 않습니다. <br className="hidden md:block" />
                       가족의 소중한 정보, 저희가 지킵니다.
                     </p>
                   </div>
@@ -175,6 +173,7 @@ const Monitoring = ({ onCTAClick }: MonitoringProps) => {
                     </h3>
                     <p className="text-gray-600 text-sm md:text-lg leading-relaxed">
                       모든 데이터는 강력한 암호화 기술로 안전하게 보호됩니다.
+                      {""}
                       <br className="hidden md:block" />
                       기록되는 모든 과정이 안전하게 관리됩니다.
                     </p>
