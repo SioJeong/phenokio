@@ -172,8 +172,7 @@ const Monitoring = ({ onCTAClick }: MonitoringProps) => {
                       안전하게 지켜져요
                     </h3>
                     <p className="text-gray-600 text-sm md:text-lg leading-relaxed">
-                      모든 데이터는 강력한 암호화 기술로 안전하게 보호됩니다.
-                      {""}
+                      모든 데이터는 강력한 암호화 기술로 안전하게 보호됩니다.{" "}
                       <br className="hidden md:block" />
                       기록되는 모든 과정이 안전하게 관리됩니다.
                     </p>

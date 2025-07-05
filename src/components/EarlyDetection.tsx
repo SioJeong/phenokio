@@ -43,31 +43,13 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                 <div className="mb-0 md:mb-6 w-full">
                   {/* 그래프 영역 */}
                   <div className="relative h-60 sm:h-80 md:h-[28rem] bg-black rounded-lg w-full overflow-x-auto flex justify-center">
-                    <svg viewBox="0 0 700 350" className="max-w-full h-full">
-                      {/* 백그라운드 격자 */}
-                      <defs>
-                        <pattern
-                          id="grid"
-                          width="25"
-                          height="25"
-                          patternUnits="userSpaceOnUse"
-                        >
-                          <path
-                            d="M 25 0 L 0 0 0 25"
-                            fill="none"
-                            stroke="#374151"
-                            strokeWidth="0.8"
-                          />
-                        </pattern>
-                      </defs>
-                      <rect width="700" height="350" fill="url(#grid)" />
-
+                    <svg viewBox="0 0 920 350" className="max-w-full h-full">
                       {/* 범례 - 좌측 상단 */}
                       <rect
-                        x="30"
+                        x="95"
                         y="20"
-                        width="200"
-                        height="60"
+                        width="160"
+                        height="64"
                         fill="black"
                         fillOpacity="0.95"
                         stroke="#6b7280"
@@ -75,7 +57,7 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         rx="6"
                       />
                       <rect
-                        x="40"
+                        x="105"
                         y="35"
                         width="20"
                         height="16"
@@ -83,21 +65,21 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         rx="3"
                       />
                       <text
-                        x="68"
+                        x="133"
                         y="47"
                         fontSize="16"
                         fill="white"
-                        fontWeight="600"
+                        fontWeight="400"
                       >
                         치매환자수
                       </text>
-                      <circle cx="50" cy="65" r="5" fill="white" />
+                      <circle cx="115" cy="65" r="5" fill="white" />
                       <text
-                        x="68"
+                        x="133"
                         y="70"
                         fontSize="16"
                         fill="white"
-                        fontWeight="600"
+                        fontWeight="400"
                       >
                         관리비용
                       </text>
@@ -105,47 +87,67 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                       {/* 막대 그래프 (환자수) - 빨간색 톤, 둥근 모서리, 아래쪽 정렬 */}
                       {/* 2017년: 70만명 - 기준점 */}
                       <rect
-                        x="120"
-                        y="250"
+                        x="95"
+                        y="261"
                         width="70"
-                        height="60"
+                        height="49"
                         fill="#fee2e2"
                         opacity="0.9"
                         rx="6"
                       />
                       {/* 2020년: 84만명 */}
                       <rect
-                        x="210"
-                        y="230"
+                        x="205"
+                        y="252"
                         width="70"
-                        height="80"
+                        height="58"
                         fill="#fecaca"
                         opacity="0.9"
                         rx="6"
                       />
                       {/* 2025년: 107만명 */}
                       <rect
-                        x="300"
-                        y="200"
+                        x="315"
+                        y="235"
                         width="70"
-                        height="110"
-                        fill="#dc2626"
+                        height="75"
+                        fill="#f87171"
+                        opacity="0.9"
+                        rx="6"
+                      />
+                      {/* 2030년: 136만명 */}
+                      <rect
+                        x="425"
+                        y="215"
+                        width="70"
+                        height="95"
+                        fill="#ef4444"
                         opacity="0.9"
                         rx="6"
                       />
                       {/* 2040년: 217만명 */}
                       <rect
-                        x="390"
-                        y="130"
+                        x="535"
+                        y="159"
                         width="70"
-                        height="180"
+                        height="151"
+                        fill="#dc2626"
+                        opacity="0.9"
+                        rx="6"
+                      />
+                      {/* 2050년: 302만명 */}
+                      <rect
+                        x="645"
+                        y="100"
+                        width="70"
+                        height="210"
                         fill="#b91c1c"
                         opacity="0.9"
                         rx="6"
                       />
                       {/* 2060년: 330만명 */}
                       <rect
-                        x="480"
+                        x="755"
                         y="80"
                         width="70"
                         height="230"
@@ -156,7 +158,7 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
 
                       {/* 선 그래프 (비용) - 하얀색 */}
                       <polyline
-                        points="155,270 245,250 335,230 425,170 515,130"
+                        points="130,270 240,265 350,256 460,244 570,207 680,160 790,130"
                         stroke="white"
                         strokeWidth="5"
                         fill="none"
@@ -165,15 +167,17 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                       />
 
                       {/* 데이터 포인트 - 하얀색 */}
-                      <circle cx="155" cy="270" r="6" fill="white" />
-                      <circle cx="245" cy="250" r="6" fill="white" />
-                      <circle cx="335" cy="230" r="6" fill="white" />
-                      <circle cx="425" cy="170" r="6" fill="white" />
-                      <circle cx="515" cy="130" r="6" fill="white" />
+                      <circle cx="130" cy="270" r="6" fill="white" />
+                      <circle cx="240" cy="265" r="6" fill="white" />
+                      <circle cx="350" cy="256" r="6" fill="white" />
+                      <circle cx="460" cy="244" r="6" fill="white" />
+                      <circle cx="570" cy="207" r="6" fill="white" />
+                      <circle cx="680" cy="160" r="6" fill="white" />
+                      <circle cx="790" cy="130" r="6" fill="white" />
 
                       {/* X축 연도 라벨 */}
                       <text
-                        x="155"
+                        x="130"
                         y="335"
                         textAnchor="middle"
                         fontSize="18"
@@ -183,7 +187,7 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         2017년
                       </text>
                       <text
-                        x="245"
+                        x="240"
                         y="335"
                         textAnchor="middle"
                         fontSize="18"
@@ -193,7 +197,7 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         2020년
                       </text>
                       <text
-                        x="335"
+                        x="350"
                         y="335"
                         textAnchor="middle"
                         fontSize="18"
@@ -203,7 +207,17 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         2025년
                       </text>
                       <text
-                        x="425"
+                        x="460"
+                        y="335"
+                        textAnchor="middle"
+                        fontSize="18"
+                        fill="white"
+                        fontWeight="700"
+                      >
+                        2030년
+                      </text>
+                      <text
+                        x="570"
                         y="335"
                         textAnchor="middle"
                         fontSize="18"
@@ -213,7 +227,17 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         2040년
                       </text>
                       <text
-                        x="515"
+                        x="680"
+                        y="335"
+                        textAnchor="middle"
+                        fontSize="18"
+                        fill="white"
+                        fontWeight="700"
+                      >
+                        2050년
+                      </text>
+                      <text
+                        x="790"
                         y="335"
                         textAnchor="middle"
                         fontSize="18"
@@ -226,8 +250,8 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                       {/* 막대 위 데이터 라벨 - 통합 형식 */}
                       {/* 2017년 */}
                       <text
-                        x="155"
-                        y="235"
+                        x="130"
+                        y="246"
                         textAnchor="middle"
                         fontSize="16"
                         fill="white"
@@ -236,8 +260,8 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         70만명
                       </text>
                       <text
-                        x="155"
-                        y="215"
+                        x="130"
+                        y="226"
                         textAnchor="middle"
                         fontSize="14"
                         fill="#d1d5db"
@@ -248,8 +272,8 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
 
                       {/* 2020년 */}
                       <text
-                        x="245"
-                        y="215"
+                        x="240"
+                        y="237"
                         textAnchor="middle"
                         fontSize="16"
                         fill="white"
@@ -258,8 +282,8 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         84만명
                       </text>
                       <text
-                        x="245"
-                        y="195"
+                        x="240"
+                        y="217"
                         textAnchor="middle"
                         fontSize="14"
                         fill="#d1d5db"
@@ -270,8 +294,8 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
 
                       {/* 2025년 */}
                       <text
-                        x="335"
-                        y="185"
+                        x="350"
+                        y="220"
                         textAnchor="middle"
                         fontSize="16"
                         fill="white"
@@ -280,8 +304,8 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         107만명
                       </text>
                       <text
-                        x="335"
-                        y="165"
+                        x="350"
+                        y="200"
                         textAnchor="middle"
                         fontSize="14"
                         fill="#d1d5db"
@@ -290,10 +314,32 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         23.8조원
                       </text>
 
+                      {/* 2030년 */}
+                      <text
+                        x="460"
+                        y="200"
+                        textAnchor="middle"
+                        fontSize="16"
+                        fill="white"
+                        fontWeight="700"
+                      >
+                        136만명
+                      </text>
+                      <text
+                        x="460"
+                        y="180"
+                        textAnchor="middle"
+                        fontSize="14"
+                        fill="#d1d5db"
+                        fontWeight="600"
+                      >
+                        31.8조원
+                      </text>
+
                       {/* 2040년 */}
                       <text
-                        x="425"
-                        y="115"
+                        x="570"
+                        y="144"
                         textAnchor="middle"
                         fontSize="16"
                         fill="white"
@@ -302,8 +348,8 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         217만명
                       </text>
                       <text
-                        x="425"
-                        y="95"
+                        x="570"
+                        y="124"
                         textAnchor="middle"
                         fontSize="14"
                         fill="#d1d5db"
@@ -312,9 +358,31 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         56.9조원
                       </text>
 
+                      {/* 2050년 */}
+                      <text
+                        x="680"
+                        y="85"
+                        textAnchor="middle"
+                        fontSize="16"
+                        fill="white"
+                        fontWeight="700"
+                      >
+                        302만명
+                      </text>
+                      <text
+                        x="680"
+                        y="65"
+                        textAnchor="middle"
+                        fontSize="14"
+                        fill="#d1d5db"
+                        fontWeight="600"
+                      >
+                        88.6조원
+                      </text>
+
                       {/* 2060년 */}
                       <text
-                        x="515"
+                        x="790"
                         y="65"
                         textAnchor="middle"
                         fontSize="16"
@@ -324,7 +392,7 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                         330만명
                       </text>
                       <text
-                        x="515"
+                        x="790"
                         y="45"
                         textAnchor="middle"
                         fontSize="14"

@@ -1,4 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useEffect, useRef, useState } from "react";
+import ImageWithLoading from "@/components/ui/image-with-loading";
 
 const features = [
   {
@@ -48,16 +50,45 @@ const CoachImageCarousel = () => {
     "/coach5.png",
   ];
 
+  const [isVisible, setIsVisible] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = carouselRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
   return (
-    <div className="relative overflow-hidden w-full h-auto">
+    <div ref={carouselRef} className="relative overflow-hidden w-full h-auto">
       <style>{`
         .scroll-wrapper {
           display: flex;
           width: fit-content;
+        }
+        .scroll-wrapper.animate {
           animation: infiniteScroll 12s linear infinite;
         }
         @media (max-width: 768px) {
-          .scroll-wrapper {
+          .scroll-wrapper.animate {
             animation: infiniteScroll 20s linear infinite;
           }
         }
@@ -74,25 +105,27 @@ const CoachImageCarousel = () => {
           align-items: center;
         }
       `}</style>
-      <div className="scroll-wrapper">
+      <div className={`scroll-wrapper ${isVisible ? "animate" : ""}`}>
         <div className="image-group">
           {coachImages.map((image, index) => (
-            <div key={`group1-${index}`} className="flex-shrink-0 mr-6">
+            <div key={`group1-${index}`} className="flex-shrink-0 mr-4 md:mr-6">
               <img
                 src={image}
                 alt={`Coach ${index + 1}`}
-                className="w-auto h-auto max-w-none object-contain max-h-40"
+                className="w-auto h-auto max-w-none object-contain max-h-36 sm:max-h-44 md:max-h-52"
+                loading="lazy"
               />
             </div>
           ))}
         </div>
         <div className="image-group">
           {coachImages.map((image, index) => (
-            <div key={`group2-${index}`} className="flex-shrink-0 mr-6">
+            <div key={`group2-${index}`} className="flex-shrink-0 mr-4 md:mr-6">
               <img
                 src={image}
                 alt={`Coach ${index + 1}`}
-                className="w-auto h-auto max-w-none object-contain max-h-40"
+                className="w-auto h-auto max-w-none object-contain max-h-36 sm:max-h-44 md:max-h-52"
+                loading="lazy"
               />
             </div>
           ))}
@@ -107,10 +140,12 @@ const OneClickFeatures = () => {
     <section className="px-4 md:px-12 py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20 md:mb-24">
-          <img
+          <ImageWithLoading
             src="/phenotyping.png"
             alt="phenotyping"
             className="mb-4 h-60 sm:h-80 md:h-[28rem] mx-auto object-contain"
+            skeletonClassName="h-60 sm:h-80 md:h-[28rem]"
+            loading="lazy"
           />
           <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4 px-2 leading-relaxed md:leading-relaxed">
             <span>별도의 조작 없이, 단 한 번의 설치로 OK</span>
@@ -131,9 +166,13 @@ const OneClickFeatures = () => {
                 }`}
               >
                 <div
-                  className={`rounded-2xl shadow-lg flex items-center justify-center w-full max-w-sm sm:max-w-md h-64 sm:h-80 md:h-96 overflow-hidden mx-auto ${
+                  className={`rounded-2xl shadow-lg flex items-center justify-center w-full max-w-sm sm:max-w-md overflow-hidden mx-auto ${
                     idx % 2 === 1 ? "md:ml-auto md:mr-0" : "md:mr-auto md:ml-0"
-                  } ${idx === 0 ? "" : "bg-gray-50"}`}
+                  } ${idx === 0 ? "" : "bg-gray-50"} ${
+                    idx === 3
+                      ? "min-h-[280px] sm:min-h-[320px] md:min-h-[360px]"
+                      : "min-h-[300px] sm:min-h-[340px] md:min-h-[380px]"
+                  }`}
                   style={
                     idx === 0
                       ? { backgroundColor: "#EBF0EB" }
@@ -147,10 +186,12 @@ const OneClickFeatures = () => {
                   {idx === 3 ? (
                     <CoachImageCarousel />
                   ) : (
-                    <img
+                    <ImageWithLoading
                       src={feature.image}
                       alt={feature.title}
-                      className="w-full h-full object-contain p-3 md:p-4"
+                      className="w-full h-full object-contain p-2 md:p-3"
+                      skeletonClassName="w-full h-full"
+                      loading="lazy"
                     />
                   )}
                 </div>

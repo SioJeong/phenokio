@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Heart } from "lucide-react";
+import ImageWithLoading from "@/components/ui/image-with-loading";
 
 interface ProblemProps {
   onCTAClick: (buttonId: string) => void;
@@ -46,10 +47,12 @@ const Problem = () => {
                 <div className="hidden lg:block absolute right-0 bottom-1/3 w-16 lg:w-20 h-0.5 bg-primary transform translate-y-1/2 translate-x-full z-0"></div>
 
                 <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-sm z-10">
-                  <img
+                  <ImageWithLoading
                     src="/problem.png"
                     alt="걱정하는 보호자"
                     className="w-full h-auto rounded-lg shadow-lg object-cover"
+                    skeletonClassName="w-full h-64 sm:h-80 md:h-96"
+                    loading="lazy"
                   />
                 </div>
               </div>
