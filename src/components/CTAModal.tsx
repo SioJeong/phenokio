@@ -16,6 +16,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Mail, Phone, CheckCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
+import { useMetaPixel } from "@/hooks/useMetaPixel";
 
 export type CTASource = "hero" | "mid" | "pricing_free_start" | "sticky_bottom";
 
@@ -27,6 +28,7 @@ interface CTAModalProps {
 
 const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
   const { trackCTAClick } = useGoogleAnalytics();
+  const { trackFormSubmit, trackCustomEvent } = useMetaPixel();
   const [contactMethod, setContactMethod] = useState<"email" | "phone">(
     "email"
   );
@@ -80,13 +82,23 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
   // 모달이 열릴 때 이벤트 트래킹
   useEffect(() => {
     if (isOpen) {
+      // Google Analytics 추적
       trackCTAClick(`modal_open_${source}`, {
         event_category: "engagement",
         event_label: "modal_opened",
         value: 5,
       });
+
+      // Meta Pixel 추적
+      trackCustomEvent("ModalOpen", {
+        content_name: `modal_${source}`,
+        content_category: "engagement",
+        value: 5,
+        currency: "KRW",
+        source: source,
+      });
     }
-  }, [isOpen, source, trackCTAClick]);
+  }, [isOpen, source, trackCTAClick, trackCustomEvent]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -128,13 +140,24 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
       });
 
       if (response.ok) {
-        // 성공 이벤트 트래킹
+        // Google Analytics 성공 이벤트 트래킹
         trackCTAClick(`submission_success_${source}`, {
           event_category: "conversion",
           event_label: "beta_signup_success",
           value: 50, // 높은 전환 가치
           contact_method: contactMethod,
           submission_source: source,
+        });
+
+        // Meta Pixel 성공 이벤트 트래킹
+        trackFormSubmit(`beta_signup_${source}`, {
+          content_name: `registration_${source}`,
+          content_category: "conversion",
+          value: 50,
+          currency: "KRW",
+          contact_method: contactMethod,
+          source: source,
+          status: true,
         });
 
         // 성공 메시지
@@ -160,13 +183,24 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
 
       // CORS 에러나 네트워크 에러의 경우, 일반적으로 데이터는 성공적으로 제출됨
       if (error instanceof TypeError && error.message.includes("fetch")) {
-        // 잠재적 성공 이벤트 트래킹 (네트워크 에러 상황에서)
+        // Google Analytics 잠재적 성공 이벤트 트래킹 (네트워크 에러 상황에서)
         trackCTAClick(`submission_potential_success_${source}`, {
           event_category: "conversion",
           event_label: "beta_signup_network_error_but_likely_success",
           value: 40, // 약간 낮은 전환 가치
           contact_method: contactMethod,
           submission_source: source,
+        });
+
+        // Meta Pixel 잠재적 성공 이벤트 트래킹
+        trackFormSubmit(`beta_signup_potential_${source}`, {
+          content_name: `registration_network_error_${source}`,
+          content_category: "conversion_potential",
+          value: 40,
+          currency: "KRW",
+          contact_method: contactMethod,
+          source: source,
+          status: true,
         });
 
         alert("신청이 완료되었습니다. 곧 연락드리겠습니다!");
@@ -194,11 +228,20 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
   };
 
   const handleClose = () => {
-    // 모달 닫기 이벤트 트래킹 (취소)
+    // Google Analytics 모달 닫기 이벤트 트래킹 (취소)
     trackCTAClick(`modal_close_${source}`, {
       event_category: "engagement",
       event_label: "modal_closed_without_submission",
       value: 1,
+    });
+
+    // Meta Pixel 모달 닫기 이벤트 트래킹
+    trackCustomEvent("ModalClose", {
+      content_name: `modal_close_${source}`,
+      content_category: "engagement",
+      value: 1,
+      currency: "KRW",
+      source: source,
     });
 
     setContactValue("");

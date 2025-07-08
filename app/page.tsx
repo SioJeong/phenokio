@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
+import { useMetaPixel } from "@/hooks/useMetaPixel";
 import { usePathname } from "next/navigation";
 import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
@@ -17,6 +18,7 @@ import { ScrollAnimationWrapper } from "@/components/ScrollAnimationWrapper";
 
 export default function Home() {
   const { trackCTAClick } = useGoogleAnalytics();
+  const { trackCTAClick: trackMetaCTAClick } = useMetaPixel();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalSource, setModalSource] = useState<CTASource>("mid");
   const pathname = usePathname();
@@ -27,7 +29,16 @@ export default function Home() {
   }, [pathname]);
 
   const handleCTAClick = (buttonId: string) => {
+    // Google Analytics 추적
     trackCTAClick(buttonId);
+
+    // Meta Pixel 추적
+    trackMetaCTAClick(buttonId, {
+      content_name: `${buttonId}_button`,
+      content_category: "cta_click",
+      value: buttonId === "pricing_free_start" ? 25 : 10, // 가격 플랜에서의 클릭에 더 높은 가치 부여
+      currency: "KRW",
+    });
 
     // kakao_consult는 모달을 열지 않음 (카카오톡 링크만 열림)
     if (buttonId === "kakao_consult") {

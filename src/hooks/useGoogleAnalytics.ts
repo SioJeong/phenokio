@@ -45,7 +45,7 @@ export const useGoogleAnalytics = () => {
         const utmParams = getUTMParams();
 
         // 개발환경에서도 이벤트가 전송되도록 설정
-        window.gtag("config", "G-6NKH4E4GWH", {
+        window.gtag("config", "G-Y6KWGRY9S3", {
           debug_mode: true,
           send_page_view: false, // 자동 페이지뷰 중복 방지
           allow_enhanced_conversions: true,
