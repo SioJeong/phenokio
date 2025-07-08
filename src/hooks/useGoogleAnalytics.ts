@@ -55,22 +55,40 @@ export const useGoogleAnalytics = () => {
           cookie_flags: "SameSite=None;Secure",
         });
 
-        // Enhanced page_view 이벤트 - 광고 최적화를 위한 추가 파라미터
-        window.gtag("event", "page_view", {
-          page_title: "피노키오 - 스마트 시니어케어",
-          page_location: window.location.href,
-          content_group1: "homepage", // 콘텐츠 그룹 설정
-          custom_parameter_1: "landing_page", // 커스텀 파라미터
-          // 광고 소스 추적
-          campaign_source: utmParams.utm_source,
-          campaign_medium: utmParams.utm_medium,
-          campaign_name: utmParams.utm_campaign,
-          campaign_content: utmParams.utm_content,
-          campaign_term: utmParams.utm_term,
-          // 클릭 ID 추적 (광고 플랫폼 연동)
-          ...(utmParams.gclid && { gclid: utmParams.gclid }),
-          ...(utmParams.fbclid && { fbclid: utmParams.fbclid }),
-        });
+        // 세션 중 첫 방문 확인
+        const sessionKey = "ga4_page_view_sent";
+        const hasSeenPage = sessionStorage.getItem(sessionKey);
+
+        if (!hasSeenPage) {
+          // 첫 방문만 page_view 이벤트 발생
+          window.gtag("event", "page_view", {
+            page_title: "피노키오 - 스마트 시니어케어",
+            page_location: window.location.href,
+            content_group1: "homepage", // 콘텐츠 그룹 설정
+            custom_parameter_1: "landing_page", // 커스텀 파라미터
+            // 광고 소스 추적
+            campaign_source: utmParams.utm_source,
+            campaign_medium: utmParams.utm_medium,
+            campaign_name: utmParams.utm_campaign,
+            campaign_content: utmParams.utm_content,
+            campaign_term: utmParams.utm_term,
+            // 클릭 ID 추적 (광고 플랫폼 연동)
+            ...(utmParams.gclid && { gclid: utmParams.gclid }),
+            ...(utmParams.fbclid && { fbclid: utmParams.fbclid }),
+          });
+
+          // 세션 동안 추적 방지
+          sessionStorage.setItem(sessionKey, "true");
+        }
+
+        // 새로고침은 별도 이벤트로 추적
+        if (hasSeenPage) {
+          window.gtag("event", "page_refresh", {
+            event_category: "engagement",
+            page_location: window.location.href,
+            value: 1, // 재방문 가치
+          });
+        }
 
         // Fire page_complete when all images finish loading
         const handleImagesLoaded = () => {

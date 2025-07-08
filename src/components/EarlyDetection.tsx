@@ -484,7 +484,7 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
             <div className="text-center mt-8 md:mt-12">
               <Button
                 className="bg-white hover:bg-gray-50 text-primary border-2 border-white rounded-full px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
-                onClick={() => onCTAClick("cta_mid")}
+                onClick={() => onCTAClick("mid")}
               >
                 지금 시작하기
               </Button>

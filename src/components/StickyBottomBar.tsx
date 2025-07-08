@@ -39,7 +39,7 @@ const StickyBottomBar = ({ onCTAClick }: StickyBottomBarProps) => {
           </div>
           <Button
             className="btn-primary bg-green-600 hover:bg-green-700 text-white rounded-full px-6 py-3 font-semibold whitespace-nowrap"
-            onClick={() => onCTAClick("cta_bottom")}
+            onClick={() => onCTAClick("sticky_bottom")}
           >
             신청하기
           </Button>
@@ -57,7 +57,7 @@ const StickyBottomBar = ({ onCTAClick }: StickyBottomBarProps) => {
           </div>
           <Button
             className="w-full bg-green-600 hover:bg-green-700 text-white rounded-full py-3 font-semibold text-sm"
-            onClick={() => onCTAClick("cta_bottom")}
+            onClick={() => onCTAClick("sticky_bottom")}
           >
             신청하기
           </Button>

@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 interface ScrollAnimationWrapperProps {
   children: React.ReactNode;
   className?: string;
-  animationType?: "default" | "delayed" | "long" | "staggered";
+  animationType?: "default" | "delayed" | "long" | "staggered" | "section";
   threshold?: number;
   rootMargin?: string;
   index?: number;
@@ -29,6 +29,8 @@ export const ScrollAnimationWrapper = ({
         return "scroll-fade-in-long";
       case "staggered":
         return "scroll-fade-in-staggered";
+      case "section":
+        return "scroll-fade-in-section";
       default:
         return "scroll-fade-in";
     }

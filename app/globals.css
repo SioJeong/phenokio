@@ -128,4 +128,15 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+
+  .scroll-fade-in-section {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1.2s ease-out 0.8s, transform 1.2s ease-out 0.8s;
+  }
+
+  .scroll-fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

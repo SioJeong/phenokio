@@ -39,9 +39,9 @@ const features: Feature[] = [
       "/coach4.png",
       "/coach5.png",
     ],
-    title: "어르신의 일상을 이해하는 돌봄 코치",
+    title: "부모님의 일상을 이해하는 돌봄 코치",
     description:
-      "요즘 어르신이 어떻게 지내고 계신지,\n어떤 대화를 나누면 좋을지까지\n피노키오가 함께 고민합니다.",
+      "요즘 부모님이 어떻게 지내고 계신지,\n어떤 대화를 나누면 좋을지까지\n피노키오가 함께 고민합니다.",
   },
   {
     image: "/battery.png",
@@ -173,7 +173,7 @@ const OneClickFeatures = () => {
             <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4 px-2 leading-relaxed md:leading-relaxed">
               <span>별도의 조작 없이, 단 한 번의 설치로 OK</span>
               <span className="block mb-2">
-                부모님의 일상 속 스마트폰을 분석
+                부모님의 스마트폰 속 일상을 분석
               </span>
             </h2>
             <hr />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -15,13 +15,9 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Mail, Phone, CheckCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
 
-export type CTASource =
-  | "mid-button"
-  | "free-plan"
-  | "monthly-plan"
-  | "yearly-plan"
-  | "bottom-sticky";
+export type CTASource = "hero" | "mid" | "pricing_free_start" | "sticky_bottom";
 
 interface CTAModalProps {
   isOpen: boolean;
@@ -30,6 +26,7 @@ interface CTAModalProps {
 }
 
 const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
+  const { trackCTAClick } = useGoogleAnalytics();
   const [contactMethod, setContactMethod] = useState<"email" | "phone">(
     "email"
   );
@@ -41,11 +38,10 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
   // source에 따라 다른 URL 설정
   const getActionUrl = (source: CTASource) => {
     const urls = {
-      "mid-button": "https://formspree.io/f/meokdkee",
-      "free-plan": "https://formspree.io/f/xyzjvjzy",
-      "monthly-plan": "https://formspree.io/f/xzzgwgzz",
-      "yearly-plan": "https://formspree.io/f/xeokdkoe",
-      "bottom-sticky": "https://formspree.io/f/xzzgwggp",
+      hero: "https://formspree.io/f/xblyvgwa",
+      mid: "https://formspree.io/f/mgvyjada",
+      pricing_free_start: "https://formspree.io/f/mvgrjkla",
+      sticky_bottom: "https://formspree.io/f/meokbano",
     };
     return urls[source];
   };
@@ -80,6 +76,17 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
       setContactValue(value);
     }
   };
+
+  // 모달이 열릴 때 이벤트 트래킹
+  useEffect(() => {
+    if (isOpen) {
+      trackCTAClick(`modal_open_${source}`, {
+        event_category: "engagement",
+        event_label: "modal_opened",
+        value: 5,
+      });
+    }
+  }, [isOpen, source, trackCTAClick]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -121,6 +128,15 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
       });
 
       if (response.ok) {
+        // 성공 이벤트 트래킹
+        trackCTAClick(`submission_success_${source}`, {
+          event_category: "conversion",
+          event_label: "beta_signup_success",
+          value: 50, // 높은 전환 가치
+          contact_method: contactMethod,
+          submission_source: source,
+        });
+
         // 성공 메시지
         alert("신청이 완료되었습니다. 곧 연락드리겠습니다!");
 
@@ -144,6 +160,15 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
 
       // CORS 에러나 네트워크 에러의 경우, 일반적으로 데이터는 성공적으로 제출됨
       if (error instanceof TypeError && error.message.includes("fetch")) {
+        // 잠재적 성공 이벤트 트래킹 (네트워크 에러 상황에서)
+        trackCTAClick(`submission_potential_success_${source}`, {
+          event_category: "conversion",
+          event_label: "beta_signup_network_error_but_likely_success",
+          value: 40, // 약간 낮은 전환 가치
+          contact_method: contactMethod,
+          submission_source: source,
+        });
+
         alert("신청이 완료되었습니다. 곧 연락드리겠습니다!");
 
         // 폼 초기화
@@ -152,6 +177,15 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
         setIsPrivacyExpanded(false);
         onClose();
       } else {
+        // 실제 에러 트래킹
+        trackCTAClick(`submission_error_${source}`, {
+          event_category: "error",
+          event_label: "beta_signup_failed",
+          value: 0,
+          contact_method: contactMethod,
+          submission_source: source,
+        });
+
         alert("신청 중 오류가 발생했습니다. 다시 시도해주세요.");
       }
     } finally {
@@ -160,6 +194,13 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
   };
 
   const handleClose = () => {
+    // 모달 닫기 이벤트 트래킹 (취소)
+    trackCTAClick(`modal_close_${source}`, {
+      event_category: "engagement",
+      event_label: "modal_closed_without_submission",
+      value: 1,
+    });
+
     setContactValue("");
     setPrivacyAgreed(false);
     setIsPrivacyExpanded(false);

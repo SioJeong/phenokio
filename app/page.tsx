@@ -18,7 +18,7 @@ import { ScrollAnimationWrapper } from "@/components/ScrollAnimationWrapper";
 export default function Home() {
   const { trackCTAClick } = useGoogleAnalytics();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalSource, setModalSource] = useState<CTASource>("mid-button");
+  const [modalSource, setModalSource] = useState<CTASource>("mid");
   const pathname = usePathname();
 
   // 새로고침 시 및 페이지 이동 시 스크롤을 최상단으로 이동
@@ -29,21 +29,22 @@ export default function Home() {
   const handleCTAClick = (buttonId: string) => {
     trackCTAClick(buttonId);
 
-    // buttonId에 따라 source 결정
-    let source: CTASource = "mid-button";
+    // kakao_consult는 모달을 열지 않음 (카카오톡 링크만 열림)
+    if (buttonId === "kakao_consult") {
+      return;
+    }
 
-    if (buttonId === "hero_cta") {
-      source = "mid-button";
-    } else if (buttonId === "cta_mid") {
-      source = "mid-button";
-    } else if (buttonId === "pricing_free") {
-      source = "free-plan";
-    } else if (buttonId === "pricing_monthly") {
-      source = "monthly-plan";
-    } else if (buttonId === "pricing_yearly") {
-      source = "yearly-plan";
-    } else if (buttonId === "cta_bottom") {
-      source = "bottom-sticky";
+    // buttonId에 따라 source 결정
+    let source: CTASource = "mid";
+
+    if (buttonId === "hero") {
+      source = "hero";
+    } else if (buttonId === "mid") {
+      source = "mid";
+    } else if (buttonId === "pricing_free_start") {
+      source = "pricing_free_start";
+    } else if (buttonId === "sticky_bottom") {
+      source = "sticky_bottom";
     }
 
     setModalSource(source);
@@ -60,7 +61,11 @@ export default function Home() {
 
       <OneClickFeatures />
 
-      <ScrollAnimationWrapper animationType="long">
+      <ScrollAnimationWrapper
+        animationType="section"
+        threshold={0.2}
+        rootMargin="0px 0px -150px 0px"
+      >
         <EarlyDetection onCTAClick={handleCTAClick} />
       </ScrollAnimationWrapper>
 

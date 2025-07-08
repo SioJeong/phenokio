@@ -56,7 +56,7 @@ const Hero = ({ onCTAClick }: HeroProps) => {
           <div className="text-center">
             <Button
               className="bg-white hover:bg-gray-50 text-gray-900 border-2 border-white rounded-full px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
-              onClick={() => onCTAClick("hero_cta")}
+              onClick={() => onCTAClick("hero")}
             >
               지금 시작하기
             </Button>
