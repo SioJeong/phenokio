@@ -181,7 +181,7 @@ const PricingPlan = ({ onCTAClick }: PricingPlanProps) => {
               카카오톡 상담하기
             </Button>
           </div>
-          <p className="text-sm mt-3 opacity-75">평일 10:00~19:00</p>
+          <p className="text-sm mt-3 opacity-75">평일 10:00 ~ 19:00</p>
         </div>
       </div>
     </div>

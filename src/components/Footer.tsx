@@ -15,7 +15,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <div className="space-y-2 text-gray-400">
-              <p>이메일: jeongsangyoung@naver.com</p>
+              <p>이메일: phenokio.team@gmail.com</p>
               <p>연락처: 010-4565-4155</p>
             </div>
           </div>

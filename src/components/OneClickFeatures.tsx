@@ -1,8 +1,18 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
-import ImageWithLoading from "@/components/ui/image-with-loading";
+import Image from "next/image";
+import { ScrollAnimationWrapper } from "./ScrollAnimationWrapper";
 
-const features = [
+interface Feature {
+  image?: string;
+  images?: string[];
+  title: string;
+  description: string;
+}
+
+const features: Feature[] = [
   {
     image: "/day-report.png",
     title: "매일 기록되는 건강 상태",
@@ -109,11 +119,14 @@ const CoachImageCarousel = () => {
         <div className="image-group">
           {coachImages.map((image, index) => (
             <div key={`group1-${index}`} className="flex-shrink-0 mr-4 md:mr-6">
-              <img
+              <Image
                 src={image}
                 alt={`Coach ${index + 1}`}
+                width={200}
+                height={200}
                 className="w-auto h-auto max-w-none object-contain max-h-36 sm:max-h-44 md:max-h-52"
-                loading="lazy"
+                priority={false}
+                style={{ width: "auto", height: "auto" }}
               />
             </div>
           ))}
@@ -121,11 +134,14 @@ const CoachImageCarousel = () => {
         <div className="image-group">
           {coachImages.map((image, index) => (
             <div key={`group2-${index}`} className="flex-shrink-0 mr-4 md:mr-6">
-              <img
+              <Image
                 src={image}
                 alt={`Coach ${index + 1}`}
+                width={200}
+                height={200}
                 className="w-auto h-auto max-w-none object-contain max-h-36 sm:max-h-44 md:max-h-52"
-                loading="lazy"
+                priority={false}
+                style={{ width: "auto", height: "auto" }}
               />
             </div>
           ))}
@@ -139,79 +155,98 @@ const OneClickFeatures = () => {
   return (
     <section className="px-4 md:px-12 py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-20 md:mb-24">
-          <ImageWithLoading
-            src="/phenotyping.png"
-            alt="phenotyping"
-            className="mb-4 h-60 sm:h-80 md:h-[28rem] mx-auto object-contain"
-            skeletonClassName="h-60 sm:h-80 md:h-[28rem]"
-            loading="lazy"
-          />
-          <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4 px-2 leading-relaxed md:leading-relaxed">
-            <span>별도의 조작 없이, 단 한 번의 설치로 OK</span>
-            <span className="block mb-2">부모님의 일상 속 스마트폰을 분석</span>
-          </h2>
-          <hr />
-        </div>
+        <ScrollAnimationWrapper
+          animationType="default"
+          threshold={0.1}
+          rootMargin="0px 0px -100px 0px"
+        >
+          <div className="text-center mb-20 md:mb-24">
+            <Image
+              src="/phenotyping.png"
+              alt="phenotyping"
+              width={600}
+              height={450}
+              className="mb-4 h-60 sm:h-80 md:h-[28rem] mx-auto object-contain"
+              priority={false}
+              style={{ width: "auto", height: "auto", maxHeight: "28rem" }}
+            />
+            <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4 px-2 leading-relaxed md:leading-relaxed">
+              <span>별도의 조작 없이, 단 한 번의 설치로 OK</span>
+              <span className="block mb-2">
+                부모님의 일상 속 스마트폰을 분석
+              </span>
+            </h2>
+            <hr />
+          </div>
+        </ScrollAnimationWrapper>
         <div className="flex flex-col gap-12 md:gap-20 max-w-6xl mx-auto">
           {features.map((feature, idx) => (
-            <div
+            <ScrollAnimationWrapper
               key={idx}
-              className="flex flex-col md:flex-row items-center gap-6 md:gap-4"
+              animationType="staggered"
+              index={idx}
+              threshold={0.1}
+              rootMargin="0px 0px -100px 0px"
             >
-              {/* 이미지(아이콘) */}
-              <div
-                className={`flex-shrink-0 w-full md:w-1/2 px-2 md:px-8 ${
-                  idx % 2 === 1 ? "md:order-2" : "md:order-1"
-                }`}
-              >
+              <div className="flex flex-col md:flex-row items-center gap-6 md:gap-4">
+                {/* 이미지(아이콘) */}
                 <div
-                  className={`rounded-2xl shadow-lg flex items-center justify-center w-full max-w-sm sm:max-w-md overflow-hidden mx-auto ${
-                    idx % 2 === 1 ? "md:ml-auto md:mr-0" : "md:mr-auto md:ml-0"
-                  } ${idx === 0 ? "" : "bg-gray-50"} ${
-                    idx === 3
-                      ? "min-h-[280px] sm:min-h-[320px] md:min-h-[360px]"
-                      : "min-h-[300px] sm:min-h-[340px] md:min-h-[380px]"
+                  className={`flex-shrink-0 w-full md:w-1/2 px-2 md:px-8 ${
+                    idx % 2 === 1 ? "md:order-2" : "md:order-1"
                   }`}
-                  style={
-                    idx === 0
-                      ? { backgroundColor: "#EBF0EB" }
-                      : idx === 1
-                      ? { backgroundColor: "#FBFEFF" }
-                      : idx === 4
-                      ? { backgroundColor: "#E1E9E6" }
-                      : {}
-                  }
                 >
-                  {idx === 3 ? (
-                    <CoachImageCarousel />
-                  ) : (
-                    <ImageWithLoading
-                      src={feature.image}
-                      alt={feature.title}
-                      className="w-full h-full object-contain p-2 md:p-3"
-                      skeletonClassName="w-full h-full"
-                      loading="lazy"
-                    />
-                  )}
+                  <div
+                    className={`rounded-2xl shadow-lg flex items-center justify-center w-full max-w-sm sm:max-w-md overflow-hidden mx-auto ${
+                      idx % 2 === 1
+                        ? "md:ml-auto md:mr-0"
+                        : "md:mr-auto md:ml-0"
+                    } ${idx === 0 ? "" : "bg-gray-50"} ${
+                      idx === 3
+                        ? "min-h-[280px] sm:min-h-[320px] md:min-h-[360px]"
+                        : "min-h-[300px] sm:min-h-[340px] md:min-h-[380px]"
+                    }`}
+                    style={
+                      idx === 0
+                        ? { backgroundColor: "#EBF0EB" }
+                        : idx === 1
+                        ? { backgroundColor: "#FBFEFF" }
+                        : idx === 4
+                        ? { backgroundColor: "#E1E9E6" }
+                        : {}
+                    }
+                  >
+                    {idx === 3 ? (
+                      <CoachImageCarousel />
+                    ) : feature.image ? (
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        width={400}
+                        height={400}
+                        className="w-full h-full object-contain p-2 md:p-3"
+                        priority={false}
+                        style={{ width: "100%", height: "100%" }}
+                      />
+                    ) : null}
+                  </div>
+                </div>
+                {/* 텍스트 */}
+                <div
+                  className={`w-full md:w-1/2 flex flex-col justify-center text-center md:text-left px-4 md:px-8 ${
+                    idx % 2 === 1 ? "md:order-1" : "md:order-2"
+                  }`}
+                >
+                  <div className="flex flex-col justify-center h-full max-w-md mx-auto md:mx-0">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4 leading-tight">
+                      {feature.title}
+                    </h3>
+                    <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 leading-relaxed break-words whitespace-pre-line">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-              {/* 텍스트 */}
-              <div
-                className={`w-full md:w-1/2 flex flex-col justify-center text-center md:text-left px-4 md:px-8 ${
-                  idx % 2 === 1 ? "md:order-1" : "md:order-2"
-                }`}
-              >
-                <div className="flex flex-col justify-center h-full max-w-md mx-auto md:mx-0">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4 leading-tight">
-                    {feature.title}
-                  </h3>
-                  <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 leading-relaxed break-words whitespace-pre-line">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            </div>
+            </ScrollAnimationWrapper>
           ))}
         </div>
       </div>

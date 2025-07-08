@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
@@ -23,7 +25,7 @@ const Hero = ({ onCTAClick }: HeroProps) => {
 
   return (
     <section
-      className="fullpage-hero relative flex items-center justify-center px-4 sm:px-6 lg:px-8"
+      className="relative flex items-center justify-center px-4 sm:px-6 lg:px-8 min-h-screen"
       style={{
         backgroundImage: `url('${backgroundImage}')`,
         backgroundSize: "cover",
@@ -50,6 +52,15 @@ const Hero = ({ onCTAClick }: HeroProps) => {
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/80 mb-6 sm:mb-8 md:mb-10 drop-shadow-md">
             오늘도 부모님께 웃음을 선물하세요.
           </p>
+
+          <div className="text-center">
+            <Button
+              className="bg-white hover:bg-gray-50 text-gray-900 border-2 border-white rounded-full px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+              onClick={() => onCTAClick("hero_cta")}
+            >
+              지금 시작하기
+            </Button>
+          </div>
         </div>
       </div>
 

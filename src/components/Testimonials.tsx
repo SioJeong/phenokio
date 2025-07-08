@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 type Testimonial = {
   name: string;
@@ -93,10 +94,13 @@ const Testimonials = () => {
     >
       <CardContent className="p-4 md:p-6">
         <div className="flex items-center mb-3 md:mb-4">
-          <img
+          <Image
             src={testimonial.image}
             alt={testimonial.name}
+            width={48}
+            height={48}
             className="w-10 h-10 md:w-12 md:h-12 rounded-full mr-3 object-cover flex-shrink-0"
+            priority={false}
           />
           <div className="min-w-0">
             <h3 className="text-base md:text-lg font-bold text-gray-900 truncate">
