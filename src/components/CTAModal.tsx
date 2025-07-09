@@ -33,7 +33,11 @@ interface CTAModalProps {
 
 const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
   const { trackCTAClick } = useGoogleAnalytics();
-  const { trackFormSubmit, trackCustomEvent } = useMetaPixel();
+  const {
+    trackFormSubmit,
+    trackCustomEvent,
+    trackCTAClick: trackMetaCTAClick,
+  } = useMetaPixel();
   const [contactMethod, setContactMethod] = useState<"email" | "phone">(
     "email"
   );
@@ -95,7 +99,15 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
         value: 5,
       });
 
-      // Meta Pixel 추적
+      // Meta Pixel CTA 추적
+      trackMetaCTAClick(`modal_open_${source}`, {
+        content_name: `modal_${source}`,
+        content_category: "engagement",
+        value: 5,
+        currency: "KRW",
+      });
+
+      // Meta Pixel 커스텀 이벤트 추적
       trackCustomEvent("ModalOpen", {
         content_name: `modal_${source}`,
         content_category: "engagement",
@@ -104,7 +116,7 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
         source: source,
       });
     }
-  }, [isOpen, source, trackCTAClick, trackCustomEvent]);
+  }, [isOpen, source, trackCTAClick, trackMetaCTAClick, trackCustomEvent]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -155,7 +167,15 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
           submission_source: source,
         });
 
-        // Meta Pixel 성공 이벤트 트래킹
+        // Meta Pixel CTA 성공 이벤트 트래킹
+        trackMetaCTAClick(`submission_success_${source}`, {
+          content_name: `registration_${source}`,
+          content_category: "conversion",
+          value: 50,
+          currency: "KRW",
+        });
+
+        // Meta Pixel 폼 제출 이벤트 트래킹
         trackFormSubmit(`beta_signup_${source}`, {
           content_name: `registration_${source}`,
           content_category: "conversion",
@@ -198,7 +218,15 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
           submission_source: source,
         });
 
-        // Meta Pixel 잠재적 성공 이벤트 트래킹
+        // Meta Pixel CTA 잠재적 성공 이벤트 트래킹
+        trackMetaCTAClick(`submission_potential_success_${source}`, {
+          content_name: `registration_network_error_${source}`,
+          content_category: "conversion_potential",
+          value: 40,
+          currency: "KRW",
+        });
+
+        // Meta Pixel 폼 제출 잠재적 성공 이벤트 트래킹
         trackFormSubmit(`beta_signup_potential_${source}`, {
           content_name: `registration_network_error_${source}`,
           content_category: "conversion_potential",
@@ -226,6 +254,14 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
           submission_source: source,
         });
 
+        // Meta Pixel 에러 트래킹
+        trackMetaCTAClick(`submission_error_${source}`, {
+          content_name: `registration_error_${source}`,
+          content_category: "error",
+          value: 0,
+          currency: "KRW",
+        });
+
         alert("신청 중 오류가 발생했습니다. 다시 시도해주세요.");
       }
     } finally {
@@ -241,7 +277,15 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
       value: 1,
     });
 
-    // Meta Pixel 모달 닫기 이벤트 트래킹
+    // Meta Pixel CTA 모달 닫기 이벤트 트래킹
+    trackMetaCTAClick(`modal_close_${source}`, {
+      content_name: `modal_close_${source}`,
+      content_category: "engagement",
+      value: 1,
+      currency: "KRW",
+    });
+
+    // Meta Pixel 커스텀 모달 닫기 이벤트 트래킹
     trackCustomEvent("ModalClose", {
       content_name: `modal_close_${source}`,
       content_category: "engagement",
