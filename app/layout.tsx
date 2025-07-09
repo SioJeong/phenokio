@@ -16,13 +16,22 @@ export const metadata: Metadata = {
     title: "멀리 있어도 곁에 있는 돌봄, 피노키오",
     description: "부모님의 일상을 케어하는 스마트 시니어케어 서비스",
     type: "website",
-    url: "https://phenokio.com",
+    url: "https://phenokio.vercel.app",
     locale: "ko_KR",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "피노키오 - 부모님의 일상을 케어하는 스마트 시니어케어 서비스",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "멀리 있어도 곁에 있는 돌봄, 피노키오",
     description: "부모님의 일상을 케어하는 스마트 시니어케어 서비스",
+    images: ["/og-image.png"],
   },
   icons: {
     icon: "/favicon.ico",
