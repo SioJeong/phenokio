@@ -331,10 +331,10 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
                 피노키오 서비스를 가장 먼저 경험해보고 싶으신가요?
                 <br />
                 <span className="sm:hidden"> </span>
-                피노키오 서비스를 가장 먼저, 평생 무료로 만나보세요!
+                피노키오 서비스를 가장 먼저, <b>평생 무료</b>로 만나보세요!
                 <br />
-                지금 사용자 명단에 등록하시면, 출시 즉시 평생 무료 이용권을
-                드립니다.
+                지금 사용자 명단에 등록하시면, 출시 즉시 <b>평생 무료 이용권</b>
+                을 드립니다.
               </p>
             </div>
           </DialogDescription>
