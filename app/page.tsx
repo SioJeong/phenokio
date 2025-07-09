@@ -50,6 +50,8 @@ export default function Home() {
 
     if (buttonId === "hero") {
       source = "hero";
+    } else if (buttonId === "one_click_features") {
+      source = "one_click_features";
     } else if (buttonId === "mid") {
       source = "mid";
     } else if (buttonId === "pricing_free_start") {
@@ -70,7 +72,7 @@ export default function Home() {
         <Problem />
       </ScrollAnimationWrapper>
 
-      <OneClickFeatures />
+      <OneClickFeatures onCTAClick={handleCTAClick} />
 
       <ScrollAnimationWrapper
         animationType="section"

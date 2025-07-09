@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ScrollAnimationWrapper } from "./ScrollAnimationWrapper";
+import { Button } from "./ui/button";
 
 interface Feature {
   image?: string;
@@ -151,7 +152,11 @@ const CoachImageCarousel = () => {
   );
 };
 
-const OneClickFeatures = () => {
+const OneClickFeatures = ({
+  onCTAClick,
+}: {
+  onCTAClick: (buttonId: string) => void;
+}) => {
   return (
     <section className="px-4 md:px-12 py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -176,6 +181,14 @@ const OneClickFeatures = () => {
                 부모님의 스마트폰 속 일상을 분석
               </span>
             </h2>
+            <div className="text-center mb-12 md:mb-16">
+              <Button
+                className="bg-primary text-white hover:bg-primary/80 font-semibold px-10 md:px-14 py-5 md:py-6 text-md md:text-xl rounded-full"
+                onClick={() => onCTAClick("one_click_features")}
+              >
+                지금 무료로 시작하기
+              </Button>
+            </div>
             <hr />
           </div>
         </ScrollAnimationWrapper>

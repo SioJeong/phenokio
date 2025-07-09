@@ -18,7 +18,12 @@ import { Mail, Phone, CheckCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
 import { useMetaPixel } from "@/hooks/useMetaPixel";
 
-export type CTASource = "hero" | "mid" | "pricing_free_start" | "sticky_bottom";
+export type CTASource =
+  | "hero"
+  | "one_click_features"
+  | "mid"
+  | "pricing_free_start"
+  | "sticky_bottom";
 
 interface CTAModalProps {
   isOpen: boolean;
@@ -41,6 +46,7 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
   const getActionUrl = (source: CTASource) => {
     const urls = {
       hero: "https://formspree.io/f/xblyvgwa",
+      one_click_features: "https://formspree.io/f/xldnyagz",
       mid: "https://formspree.io/f/mgvyjada",
       pricing_free_start: "https://formspree.io/f/mvgrjkla",
       sticky_bottom: "https://formspree.io/f/meokbano",
