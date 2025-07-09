@@ -490,7 +490,7 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                 className="bg-white hover:bg-gray-50 text-primary border-2 border-white rounded-full px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
                 onClick={() => onCTAClick("mid")}
               >
-                지금 등록하고 무료로 이용하기
+                지금 등록하고 평생 무료로 이용하기
               </Button>
             </div>
           </div>

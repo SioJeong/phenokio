@@ -331,10 +331,10 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
                 피노키오 서비스를 가장 먼저 경험해보고 싶으신가요?
                 <br />
                 <span className="sm:hidden"> </span>
-                피노키오 서비스를 가장 먼저, 그것도 무료로 만나보세요!
+                피노키오 서비스를 가장 먼저, 평생 무료로 만나보세요!
                 <br />
-                지금 사용자 명단에 등록하시면, 출시 즉시 무료로 이용하실 수
-                있습니다.
+                지금 사용자 명단에 등록하시면, 출시 즉시 평생 무료 이용권을
+                드립니다.
               </p>
             </div>
           </DialogDescription>
@@ -488,13 +488,13 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
             )}
           </div>
 
-          <DialogFooter className="flex flex-col sm:flex-row gap-3 mt-6 sm:mt-8 px-1">
+          <DialogFooter className="flex flex-row gap-3 mt-6 sm:mt-8 px-1">
             <Button
               type="button"
               variant="outline"
               onClick={handleClose}
               disabled={isSubmitting}
-              className="w-full sm:flex-1 h-12 sm:h-10 text-sm sm:text-base order-2 sm:order-1"
+              className="flex-1 h-10 text-sm sm:text-base"
             >
               취소
             </Button>
@@ -506,7 +506,7 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
                 !privacyAgreed ||
                 isSubmitting
               }
-              className="w-full sm:flex-1 h-12 sm:h-10 bg-green-600 hover:bg-green-700 text-sm sm:text-base font-medium order-1 sm:order-2"
+              className="flex-1 h-10 bg-green-600 hover:bg-green-700 text-sm sm:text-base font-medium"
             >
               {isSubmitting ? "신청 중..." : "신청하기"}
             </Button>

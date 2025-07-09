@@ -62,7 +62,7 @@ const Hero = ({ onCTAClick }: HeroProps) => {
               className="bg-white hover:bg-gray-50 text-gray-900 border-2 border-white rounded-full px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
               onClick={() => onCTAClick("hero")}
             >
-              지금 등록하면 무료
+              지금 등록하면 평생 무료
             </Button>
           </div>
         </div>
