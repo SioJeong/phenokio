@@ -20,7 +20,7 @@ const Footer = () => {
             <div className="space-y-2 text-xs md:text-base text-gray-400 mb-32 md:mb-16">
               <p>이메일: phenokio.team@gmail.com</p>
               <p>연락처: 010-4565-4155</p>
-              <p>주소: 서울특별시 마포구 마포대로 89 포스트타워, 12층 1201호</p>
+              <p>주소: 서울특별시 마포구 마포대로 89 포스트타워, 12층</p>
             </div>
           </div>
         </div>
