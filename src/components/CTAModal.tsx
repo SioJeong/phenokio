@@ -20,7 +20,7 @@ import { useMetaPixel } from "@/hooks/useMetaPixel";
 
 export type CTASource =
   | "hero"
-  | "one_click_features"
+  | "digital_phenotyping"
   | "mid"
   | "pricing_free_start"
   | "sticky_bottom";
@@ -38,6 +38,7 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
     trackCustomEvent,
     trackCTAClick: trackMetaCTAClick,
   } = useMetaPixel();
+  const [name, setName] = useState("");
   const [contactMethod, setContactMethod] = useState<"email" | "phone">(
     "email"
   );
@@ -50,7 +51,7 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
   const getActionUrl = (source: CTASource) => {
     const urls = {
       hero: "https://formspree.io/f/xblyvgwa",
-      one_click_features: "https://formspree.io/f/xldnyagz",
+      digital_phenotyping: "https://formspree.io/f/xldnyagz",
       mid: "https://formspree.io/f/mgvyjada",
       pricing_free_start: "https://formspree.io/f/mvgrjkla",
       sticky_bottom: "https://formspree.io/f/meokbano",
@@ -121,9 +122,16 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!contactValue.trim() || !privacyAgreed) return;
+    if (!name.trim() || !contactValue.trim() || !privacyAgreed) return;
 
     setIsSubmitting(true);
+
+    // 이름 유효성 검사
+    if (name.trim().length < 2) {
+      alert("이름을 정확히 입력해주세요.");
+      setIsSubmitting(false);
+      return;
+    }
 
     // 간단한 유효성 검사
     if (contactMethod === "email") {
@@ -144,6 +152,7 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
 
     try {
       const formData = new FormData();
+      formData.append("name", name.trim());
       formData.append("contactMethod", contactMethod);
       formData.append("contactValue", contactValue);
       formData.append("privacyAgreed", privacyAgreed.toString());
@@ -190,6 +199,7 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
         alert("신청이 완료되었습니다. 곧 연락드리겠습니다!");
 
         // 폼 초기화
+        setName("");
         setContactValue("");
         setPrivacyAgreed(false);
         setIsPrivacyExpanded(false);
@@ -240,6 +250,7 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
         alert("신청이 완료되었습니다. 곧 연락드리겠습니다!");
 
         // 폼 초기화
+        setName("");
         setContactValue("");
         setPrivacyAgreed(false);
         setIsPrivacyExpanded(false);
@@ -294,6 +305,7 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
       source: source,
     });
 
+    setName("");
     setContactValue("");
     setPrivacyAgreed(false);
     setIsPrivacyExpanded(false);
@@ -305,7 +317,7 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
       <DialogContent className="w-[95vw] max-w-[500px] max-h-[90vh] overflow-y-auto p-4 sm:p-6">
         <DialogHeader className="space-y-3 sm:space-y-4">
           <DialogTitle className="text-lg sm:text-xl md:text-2xl font-bold text-center text-gray-900 leading-tight px-2">
-            피노키오 베타 테스터 신청하기
+            피노키오 대기 등록
           </DialogTitle>
           <DialogDescription className="text-left text-gray-600 px-2">
             <div className="bg-green-50 p-3 sm:p-4 rounded-lg border border-green-200">
@@ -316,21 +328,43 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-green-700 leading-relaxed">
-                피노키오 서비스를 먼저 경험해보고 싶으신가요?
+                피노키오 서비스를 가장 먼저 경험해보고 싶으신가요?
                 <br />
                 <span className="sm:hidden"> </span>
-                지금 베타 테스터 프로그램에 참여하시면, 간단한 절차만으로 출시
-                전 서비스를 직접 체험해보실 수 있습니다.
+                피노키오 서비스를 가장 먼저, 그것도 무료로 만나보세요!
+                <br />
+                지금 사용자 명단에 등록하시면, 출시 즉시 무료로 이용하실 수
+                있습니다.
               </p>
             </div>
           </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 px-1">
+          {/* 이름 입력 */}
+          <div className="space-y-2 sm:space-y-3">
+            <Label
+              htmlFor="name"
+              className="text-sm sm:text-base font-medium text-gray-700 block"
+            >
+              이름
+            </Label>
+            <Input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="이름을 입력해주세요"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full text-sm sm:text-base h-10 sm:h-10"
+              required
+            />
+          </div>
+
           {/* 연락 방법 선택 */}
           <div className="space-y-2 sm:space-y-3">
             <Label className="text-sm sm:text-base font-medium text-gray-700 block">
-              연락 방법을 선택해주세요
+              연락받을 수단을 선택해주세요
             </Label>
             <RadioGroup
               value={contactMethod}
@@ -431,6 +465,7 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
                 <div className="space-y-2">
                   <div>
                     <p className="font-medium mb-1">수집하는 개인정보 항목:</p>
+                    <p className="ml-2">• 이름</p>
                     <p className="ml-2">
                       • 연락처 정보 (이메일 주소 또는 휴대전화번호)
                     </p>
@@ -465,7 +500,12 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
             </Button>
             <Button
               type="submit"
-              disabled={!contactValue.trim() || !privacyAgreed || isSubmitting}
+              disabled={
+                !name.trim() ||
+                !contactValue.trim() ||
+                !privacyAgreed ||
+                isSubmitting
+              }
               className="w-full sm:flex-1 h-12 sm:h-10 bg-green-600 hover:bg-green-700 text-sm sm:text-base font-medium order-1 sm:order-2"
             >
               {isSubmitting ? "신청 중..." : "신청하기"}

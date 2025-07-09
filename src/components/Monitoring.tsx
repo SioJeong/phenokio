@@ -42,7 +42,7 @@ const Monitoring = ({ onCTAClick }: MonitoringProps) => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-xl md:text-5xl font-bold text-gray-900 mb-4">
             피노키오가 세심하게 살피는
             <br />
             부모님의{" "}
@@ -54,7 +54,7 @@ const Monitoring = ({ onCTAClick }: MonitoringProps) => {
                     : "opacity-100 transform scale-100 translate-y-0"
                 }`}
                 style={{
-                  minWidth: "200px",
+                  minWidth: "100px",
                   textAlign: "center",
                   whiteSpace: "nowrap",
                 }}
@@ -65,7 +65,7 @@ const Monitoring = ({ onCTAClick }: MonitoringProps) => {
           </h2>
           <p className="text-md md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             일상 속 소중한 순간들을 놓치지 않고 <br />
-            스마트한 인사이트로 건강한 돌봄을 제안합니다
+            스마트한 인사이트로 건강한 돌봄을 제안합니다.
           </p>
         </div>
 
@@ -97,7 +97,7 @@ const Monitoring = ({ onCTAClick }: MonitoringProps) => {
                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">
                       사생활은
                       <br />
-                      수집하지 않아요
+                      수집하지 않아요.
                     </h3>
                     <p className="text-gray-600 text-sm md:text-lg leading-relaxed">
                       통화 내용이나 문자처럼 사적인 정보는 절대 수집하지
@@ -134,7 +134,7 @@ const Monitoring = ({ onCTAClick }: MonitoringProps) => {
                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">
                       데이터는
                       <br />
-                      유출되지 않아요
+                      유출되지 않아요.
                     </h3>
                     <p className="text-gray-600 text-sm md:text-lg leading-relaxed">
                       모든 정보는 철저한 보안 시스템으로 보호되어 외부에
@@ -171,7 +171,7 @@ const Monitoring = ({ onCTAClick }: MonitoringProps) => {
                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">
                       기록은
                       <br />
-                      안전하게 지켜져요
+                      안전하게 지켜져요.
                     </h3>
                     <p className="text-gray-600 text-sm md:text-lg leading-relaxed">
                       모든 데이터는 강력한 암호화 기술로 안전하게 보호됩니다.{" "}

@@ -15,6 +15,7 @@ import Monitoring from "@/components/Monitoring";
 import CTAModal, { CTASource } from "@/components/CTAModal";
 import StickyBottomBar from "@/components/StickyBottomBar";
 import { ScrollAnimationWrapper } from "@/components/ScrollAnimationWrapper";
+import DigitalPhenotyping from "@/components/DigitalPhenotyping";
 
 export default function Home() {
   const { trackCTAClick } = useGoogleAnalytics();
@@ -50,8 +51,8 @@ export default function Home() {
 
     if (buttonId === "hero") {
       source = "hero";
-    } else if (buttonId === "one_click_features") {
-      source = "one_click_features";
+    } else if (buttonId === "digital_phenotyping") {
+      source = "digital_phenotyping";
     } else if (buttonId === "mid") {
       source = "mid";
     } else if (buttonId === "pricing_free_start") {
@@ -72,11 +73,15 @@ export default function Home() {
         <Problem />
       </ScrollAnimationWrapper>
 
-      <OneClickFeatures onCTAClick={handleCTAClick} />
+      <ScrollAnimationWrapper>
+        <DigitalPhenotyping onCTAClick={handleCTAClick} />
+      </ScrollAnimationWrapper>
+
+      <OneClickFeatures />
 
       <ScrollAnimationWrapper
         animationType="section"
-        threshold={0.2}
+        threshold={0.05}
         rootMargin="0px 0px -150px 0px"
       >
         <EarlyDetection onCTAClick={handleCTAClick} />

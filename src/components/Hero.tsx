@@ -44,12 +44,16 @@ const Hero = ({ onCTAClick }: HeroProps) => {
             우리 가족의 하루
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-2 sm:mb-3 md:mb-4 drop-shadow-md">
+            AI 기반 디지털 피노타이핑으로
+          </p>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-2 sm:mb-3 md:mb-4 drop-shadow-md">
             부모님의 작은 변화까지 살피고,
           </p>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/80 mb-2 sm:mb-3 md:mb-4 drop-shadow-md">
-            따뜻한 응원과 알림으로 행복한 일상을 이어 드려요.
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 text-white/80 mb-2 sm:mb-3 md:mb-4 drop-shadow-md">
+            따뜻한 응원과 알림으로 <br className="md:hidden" />
+            행복한 일상을 이어 드려요.
           </p>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/80 mb-6 sm:mb-8 md:mb-10 drop-shadow-md">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 text-white/80 mb-6 sm:mb-8 md:mb-10 drop-shadow-md">
             오늘도 부모님께 웃음을 선물하세요.
           </p>
 
@@ -58,7 +62,7 @@ const Hero = ({ onCTAClick }: HeroProps) => {
               className="bg-white hover:bg-gray-50 text-gray-900 border-2 border-white rounded-full px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
               onClick={() => onCTAClick("hero")}
             >
-              지금 시작하기
+              지금 등록하면 무료
             </Button>
           </div>
         </div>

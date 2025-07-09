@@ -7,34 +7,34 @@ interface EarlyDetectionProps {
 
 const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
   return (
-    <section className="py-16 md:py-20 bg-gray-50">
+    <section className="py-16 md:py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-10 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-2 leading-tight">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-2 leading-tight">
               진짜 돌봄은, <br className="sm:hidden " />
               <span className="text-primary">작은 변화도 놓치지 않는 것</span>
-              입니다
+              입니다.
             </h2>
-            <p className="text-lg sm:text-xl text-gray-700 leading-relaxed px-2">
+            <p className="text-md sm:text-xl text-gray-700 leading-relaxed px-2">
               부모님의 하루, 작은 이상도 살펴드릴 수 있다면
               <br />그 순간이 바로{" "}
               <span className="font-semibold text-primary">
                 가장 따뜻한 돌봄의 시작
               </span>
-              입니다
+              입니다.
             </p>
           </div>
 
           {/* 치매 환자수 및 비용 추계 그래프 */}
           <div className="mb-12 md:mb-16 w-full">
             <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center px-2 leading-tight">
-              조기에 알면, 돌봄도 달라집니다
+              조기에 알면, 돌봄도 달라집니다.
             </h4>
-            <p className="text-base sm:text-lg text-gray-600 mb-6 md:mb-8 text-center px-2">
+            <p className="text-md sm:text-xl text-gray-600 mb-6 md:mb-8 text-center px-2">
               건강의 작은 신호를 놓치지 않을 때 예방과 대응,
               <br className="sm:hidden " />
-              모두 달라집니다
+              모두 달라집니다.
             </p>
 
             <div className="mb-0 md:mb-8 w-full">
@@ -42,8 +42,12 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
               <div className="bg-black rounded-2xl w-full shadow-sm border border-gray-800 overflow-hidden">
                 <div className="mb-0 md:mb-6 w-full">
                   {/* 그래프 영역 */}
-                  <div className="relative h-60 sm:h-80 md:h-[28rem] bg-black rounded-lg w-full overflow-x-auto flex justify-center">
-                    <svg viewBox="0 0 920 350" className="max-w-full h-full">
+                  <div className="relative h-60 sm:h-80 md:h-[28rem] bg-black rounded-lg w-full overflow-hidden flex justify-center">
+                    <svg
+                      viewBox="0 0 920 350"
+                      className="w-full h-full"
+                      style={{ minWidth: "100%" }}
+                    >
                       {/* 범례 - 좌측 상단 */}
                       <rect
                         x="95"
@@ -409,10 +413,10 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
 
             <div className="mt-6 md:mt-8 text-center">
               <div className="text-lg md:text-xl font-semibold text-gray-900 mb-2 md:mb-3 px-2">
-                돌봄의 시간과 비용, 앞으로 더 늘어납니다
+                돌봄의 시간과 비용, 앞으로 더 늘어납니다.
               </div>
               <div className="text-sm md:text-base text-gray-600 px-2">
-                지금이야말로, 조기 발견과 예방이 꼭 필요한 순간입니다
+                지금이야말로, 조기 발견과 예방이 꼭 필요한 순간입니다.
               </div>
             </div>
           </div>
@@ -470,13 +474,13 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
           </div>
 
           <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-6 md:p-8 text-white">
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 md:mb-4 leading-tight">
+            <h3 className="text-md sm:text-xl md:text-2xl font-bold mb-3 md:mb-4 leading-tight">
               조기 발견은 부모님의 건강뿐 아니라
               <br />
               <span className="text-primary-foreground/80">
                 가족의 삶까지 지키는 시작점
               </span>
-              입니다
+              입니다.
             </h3>
             <p className="text-base sm:text-md md:text-xl font-medium text-primary-foreground/90">
               건강 변화에 귀 기울이는 돌봄을 시작해보세요.
@@ -486,7 +490,7 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
                 className="bg-white hover:bg-gray-50 text-primary border-2 border-white rounded-full px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
                 onClick={() => onCTAClick("mid")}
               >
-                지금 시작하기
+                지금 등록하고 무료로 이용하기
               </Button>
             </div>
           </div>

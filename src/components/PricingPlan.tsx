@@ -14,16 +14,16 @@ const PricingPlan = ({ onCTAClick }: PricingPlanProps) => {
   ];
 
   return (
-    <div className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
+    <div className="py-16 md:py-24 bg-gradient-to-b bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4 px-2">
-            지금은 무료로 사용하세요
+            지금 등록하면 무료입니다.
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
             모든 기능을 무료로 체험하고
             <br />
-            우리 부모님에게 딱 맞는 서비스인지 확인해보세요
+            우리 부모님에게 딱 맞는 서비스인지 확인해보세요.
           </p>
         </div>
 
@@ -31,7 +31,7 @@ const PricingPlan = ({ onCTAClick }: PricingPlanProps) => {
         <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-6 md:p-8 text-center text-white max-w-2xl mx-auto mb-12">
           <div className="mb-6">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              시작은 무료, 안심은 오래갑니다
+              시작은 무료, 안심은 오래갑니다.
             </h3>
           </div>
 
@@ -63,7 +63,7 @@ const PricingPlan = ({ onCTAClick }: PricingPlanProps) => {
             궁금한 점이 있으신가요?
           </h3>
           <p className="text-base md:text-lg mb-5">
-            상담사가 카카오톡으로 친절하게 답변드립니다
+            상담사가 카카오톡으로 친절하게 답변드립니다.
           </p>
           <div className="flex justify-center">
             <Button
