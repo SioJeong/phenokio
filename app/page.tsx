@@ -53,6 +53,8 @@ export default function Home() {
       source = "hero";
     } else if (buttonId === "digital_phenotyping") {
       source = "digital_phenotyping";
+    } else if (buttonId === "problem") {
+      source = "problem";
     } else if (buttonId === "mid") {
       source = "mid";
     } else if (buttonId === "pricing_free_start") {
@@ -70,7 +72,7 @@ export default function Home() {
       <Hero onCTAClick={handleCTAClick} />
 
       <ScrollAnimationWrapper>
-        <Problem />
+        <Problem onCTAClick={handleCTAClick} />
       </ScrollAnimationWrapper>
 
       <ScrollAnimationWrapper>

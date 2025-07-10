@@ -50,11 +50,11 @@ const Hero = ({ onCTAClick }: HeroProps) => {
             부모님의 작은 변화까지 살피고,
           </p>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 text-white/80 mb-2 sm:mb-3 md:mb-4 drop-shadow-md">
-            따뜻한 응원과 알림으로 <br className="md:hidden" />
-            행복한 일상을 이어 드려요.
+            소소한 안부와 안심으로 <br className="md:hidden" />
+            평온한 일상을 이어 드려요.
           </p>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 text-white/80 mb-6 sm:mb-8 md:mb-10 drop-shadow-md">
-            오늘도 부모님께 웃음을 선물하세요.
+            오늘도 부모님 곁에 작은 온기로 머무세요.
           </p>
 
           <div className="text-center">

@@ -27,20 +27,20 @@ const Testimonials = () => {
         "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=80&h=80&fit=crop&crop=face",
     },
     {
-      name: "최O희",
-      position: "주부",
-      comment:
-        "시어머니에게 매번 전화해서 돌보는게 부담스러웠는데, 더 이상 부담스럽지않아요.",
-      image:
-        "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=80&h=80&fit=crop",
-    },
-    {
       name: "이O연",
       position: "주부",
       comment:
-        "부모님에게 무언가를 시키는 것이 부담스러웠는데, 피노키오는 설치만 해드려도 상태를 확인할 수 있어 참 든든합니다.",
+        "직접 연락해야만 알 수 있었던 부모님의 안부가 이제는 앱 설치만으로 확인 가능해졌습니다. 피노키오 덕분에 정말 든든합니다.",
       image:
         "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=80&h=80&fit=crop&crop=face",
+    },
+    {
+      name: "최O희",
+      position: "주부",
+      comment:
+        "어머니께 여러 번 전화해도 받지 않으실 때마다 걱정이 컸는데, 앱 알림으로 복지 센터 방문 일정임을 바로 확인하고 안심했습니다. 멀리 떨어져 있어도 어머니의 일상을 놓치지 않고 지켜볼 수 있어 정말 든든해요.",
+      image:
+        "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=80&h=80&fit=crop",
     },
     {
       name: "강O수",

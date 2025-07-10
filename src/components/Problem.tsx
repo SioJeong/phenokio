@@ -1,12 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Heart } from "lucide-react";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 interface ProblemProps {
   onCTAClick: (buttonId: string) => void;
 }
 
-const Problem = () => {
+const Problem = ({ onCTAClick }: ProblemProps) => {
   return (
     <section className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -20,7 +21,7 @@ const Problem = () => {
           </div>
 
           <div className="relative">
-            <div className="grid lg:grid-cols-3 gap-8 lg:gap-20 items-center">
+            <div className="grid lg:grid-cols-3 gap-4 lg:gap-20 items-center">
               <div className="flex justify-center lg:justify-end relative">
                 <Card className="bg-white shadow-sm hover:shadow-md transition-shadow duration-200 w-full max-w-xs sm:w-48 sm:h-48 md:w-64 md:h-64 relative z-10">
                   <CardContent className="p-4 md:p-6 h-full flex flex-col justify-center">
@@ -101,11 +102,14 @@ const Problem = () => {
             </div>
           </div>
 
-          {/* CTA Section */}
+          {/* CTA Button */}
           <div className="text-center mt-12 md:mt-16">
-            <p className="text-lg md:text-2xl text-gray-600 mb-6 md:mb-8">
-              이런 마음, 피노키오가 해결해드릴게요.
-            </p>
+            <Button
+              className="bg-primary text-white hover:bg-primary/80 font-semibold px-12 md:px-16 py-6 md:py-8 text-sm md:text-xl rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={() => onCTAClick("problem")}
+            >
+              이런 마음, 피노키오가 해결해드릴게요!
+            </Button>
           </div>
         </div>
       </div>
