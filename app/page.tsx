@@ -72,7 +72,7 @@ export default function Home() {
       <Hero onCTAClick={handleCTAClick} />
 
       <ScrollAnimationWrapper>
-        <Problem onCTAClick={handleCTAClick} />
+        <Problem />
       </ScrollAnimationWrapper>
 
       <ScrollAnimationWrapper>
@@ -86,7 +86,7 @@ export default function Home() {
         threshold={0.05}
         rootMargin="0px 0px -150px 0px"
       >
-        <EarlyDetection onCTAClick={handleCTAClick} />
+        <EarlyDetection />
       </ScrollAnimationWrapper>
 
       <ScrollAnimationWrapper>
