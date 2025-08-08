@@ -331,13 +331,13 @@ const CTAModal = ({ isOpen, onClose, source }: CTAModalProps) => {
               <div className="flex items-center mb-1.5 sm:mb-2">
                 <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-600 mr-1.5 flex-shrink-0" />
                 <span className="font-semibold text-green-800 text-sm sm:text-base">
-                  2025년 7월 말 정식 출시 예정
+                  2025년 9월 정식 출시 예정
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-green-700 leading-relaxed">
                 피노키오 서비스를 가장 먼저 경험해보고 싶으신가요?
                 <br />
-                지금 사용자 명단에 등록하시면, 출시 즉시 <b>평생 무료 이용권</b>
+                지금 사용자 명단에 등록하시면, 출시 즉시 <b>1년 무료 이용권</b>
                 을 드려요.
               </p>
             </div>

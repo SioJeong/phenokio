@@ -18,10 +18,10 @@ const PricingPlan = ({ onCTAClick }: PricingPlanProps) => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4 px-2">
-            지금 등록하면 평생 무료입니다.
+            지금 등록하고 부담 없이 시작하세요
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            모든 기능을 무료로,
+            모든 기능을 제한 없이,
             <br />
             우리 부모님에게 딱 맞는 서비스인지
             <br className="md:hidden" />
@@ -33,7 +33,7 @@ const PricingPlan = ({ onCTAClick }: PricingPlanProps) => {
         <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-6 md:p-8 text-center text-white max-w-2xl mx-auto mb-12">
           <div className="mb-6">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-              시작은 무료, 안심은 오래갑니다.
+              시작은 간편하게, 안심은 오래도록
             </h3>
           </div>
 
@@ -55,7 +55,7 @@ const PricingPlan = ({ onCTAClick }: PricingPlanProps) => {
             className="bg-white text-primary hover:bg-gray-100 font-semibold px-8 py-4 text-lg md:text-lg rounded-full"
             onClick={() => onCTAClick("pricing_free_start")}
           >
-            평생 무료로 이용하기
+            지금 시작하기
           </Button>
         </div>
 

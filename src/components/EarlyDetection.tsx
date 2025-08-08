@@ -1,11 +1,6 @@
 import { Timer, PiggyBank, TrendingDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
-interface EarlyDetectionProps {
-  onCTAClick: (buttonId: string) => void;
-}
-
-const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
+const EarlyDetection = () => {
   return (
     <section className="py-16 md:py-20 bg-gray-100">
       <div className="container mx-auto px-4">
@@ -485,14 +480,6 @@ const EarlyDetection = ({ onCTAClick }: EarlyDetectionProps) => {
             <p className="text-base sm:text-md md:text-xl font-medium text-primary-foreground/90">
               건강 변화에 귀 기울이는 돌봄을 시작해보세요.
             </p>
-            <div className="text-center mt-8 md:mt-12">
-              <Button
-                className="bg-white hover:bg-gray-50 text-primary border-2 border-white rounded-full px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
-                onClick={() => onCTAClick("mid")}
-              >
-                지금 등록하고 평생 무료로 이용하기
-              </Button>
-            </div>
           </div>
         </div>
       </div>

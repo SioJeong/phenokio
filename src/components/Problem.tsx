@@ -1,13 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Heart } from "lucide-react";
 import Image from "next/image";
-import { Button } from "./ui/button";
 
-interface ProblemProps {
-  onCTAClick: (buttonId: string) => void;
-}
-
-const Problem = ({ onCTAClick }: ProblemProps) => {
+const Problem = () => {
   return (
     <section className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -100,16 +95,6 @@ const Problem = ({ onCTAClick }: ProblemProps) => {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* CTA Button */}
-          <div className="text-center mt-12 md:mt-16">
-            <Button
-              className="bg-primary text-white hover:bg-primary/80 font-semibold px-12 md:px-16 py-6 md:py-8 text-sm md:text-xl rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-              onClick={() => onCTAClick("problem")}
-            >
-              이런 마음, 피노키오가 해결해드릴게요!
-            </Button>
           </div>
         </div>
       </div>
